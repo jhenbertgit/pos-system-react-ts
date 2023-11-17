@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "product_name": "Coconut",
+      "price": 20,
+      "img": ""
+    },
+    {
+      "id": 2,
+      "product_name": "Watermelon",
+      "price": 35,
+      "img": ""
+    },
+    {
+      "id": 3,
+      "product_name": "Orange",
+      "price": 50,
+      "img": ""
+    },
+    {
+      "id": 4,
+      "product_name": "Mango",
+      "price": 25,
+      "img": ""
+    },
+    {
+      "id": 5,
+      "product_name": "Durian",
+      "price": 57,
+      "img": ""
+    }
+  ]
+}

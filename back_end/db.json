@@ -4,31 +4,31 @@
       "id": 1,
       "product_name": "Coconut",
       "price": 20,
-      "img": ""
+      "img": "https://cdn.pixabay.com/photo/2015/01/22/02/33/coco-607349_1280.jpg"
     },
     {
       "id": 2,
       "product_name": "Watermelon",
       "price": 35,
-      "img": ""
+      "img": "https://cdn.pixabay.com/photo/2016/09/07/17/01/water-melon-1652093_1280.jpg"
     },
     {
       "id": 3,
       "product_name": "Orange",
       "price": 50,
-      "img": ""
+      "img": "https://cdn.pixabay.com/photo/2017/02/26/12/27/oranges-2100108_1280.jpg"
     },
     {
       "id": 4,
       "product_name": "Mango",
       "price": 25,
-      "img": ""
+      "img": "https://cdn.pixabay.com/photo/2016/04/10/15/13/mangoes-1320111_1280.jpg"
     },
     {
       "id": 5,
       "product_name": "Durian",
       "price": 57,
-      "img": ""
+      "img": "https://cdn.pixabay.com/photo/2015/11/08/11/49/durian-1033485_1280.jpg"
     }
   ]
 }

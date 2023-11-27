@@ -35,8 +35,7 @@ const POSPage = () => {
               <img
                 src={product.img}
                 alt={product.product_name}
-                className="w-full h-full object-center object-cover rounded-lg transition-all duration-300 hover:scale-105"
-                style={{ cursor: "pointer" }}
+                className="w-full h-full object-center object-cover rounded-lg transition-all duration-300 hover:scale-105 cursor-pointer"
               />
             </div>
           </CardContent>

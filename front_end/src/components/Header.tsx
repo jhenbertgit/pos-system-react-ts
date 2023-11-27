@@ -22,7 +22,11 @@ const Header = () => {
               <NavLink
                 key={i}
                 to={route.href}
-                className="text-sm font-medium transition-colors"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-medium font-bold transition-colors hover:underline underline"
+                    : "text-medium font-medium transition-colors hover:underline"
+                }
               >
                 {route.label}
               </NavLink>

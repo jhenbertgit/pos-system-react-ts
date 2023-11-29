@@ -1,6 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import Container from "./Container";
 import ModeToggle from "./ModeToggle";
+import { ShoppingCart } from "lucide-react";
+import { Badge } from "./ui/badge";
+import { useContext } from "react";
+import CartQtyContext from "@/context/cart-qty";
 
 const routes = [
   { href: "", label: "Home" },
@@ -8,6 +12,7 @@ const routes = [
 ];
 
 const Header = () => {
+  const quantity = useContext(CartQtyContext);
   return (
     <header>
       <Container>
@@ -32,7 +37,15 @@ const Header = () => {
               </NavLink>
             ))}
           </nav>
-          <ModeToggle />
+          <div className="flex space-x-3 items-center">
+            <div className="relative">
+              <ShoppingCart size={40} />
+              <div className="absolute top-0 right-0">
+                <Badge>{quantity}</Badge>
+              </div>
+            </div>
+            <ModeToggle />
+          </div>
         </div>
       </Container>
     </header>

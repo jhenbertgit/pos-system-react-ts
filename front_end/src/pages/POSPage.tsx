@@ -4,20 +4,10 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import { Products } from "@/types";
 import { useFetch } from "@jhenbertnpm/use-fetch";
-import { useState } from "react";
-
-type Products = {
-  id: number;
-  product_name: string;
-  price: number;
-  img: string;
-  quantity: number;
-  totalAmount: number;
-};
 
 const POSPage = () => {
-  const [cart, setCart] = useState<Products[]>([]);
   const { data } = useFetch<Products[]>({
     fetchFn: async () => {
       const response = await fetch("http://localhost:3000/products");
@@ -26,40 +16,6 @@ const POSPage = () => {
     },
     initData: [],
   });
-
-  const addProductToCart = async (product: Products) => {
-    //check if adding product exists
-    let findProductInCart = cart.find((i) => {
-      return i.id === product.id;
-    });
-
-    if (findProductInCart) {
-      let newCart: Products[] = [];
-      let newItem;
-
-      cart.forEach((cartItem) => {
-        if (cartItem.id === product.id) {
-          newItem = {
-            ...cartItem,
-            quantity: cartItem.quantity + 1,
-            totalAmount: cartItem.price * (cartItem.quantity + 1),
-          };
-          newCart.push(newItem);
-        } else {
-          newCart.push(cartItem);
-        }
-      });
-      setCart(newCart);
-      //
-    } else {
-      let addingProduct = {
-        ...product,
-        quantity: 1,
-        totalAmount: product.price,
-      };
-      setCart([...cart, addingProduct]);
-    }
-  };
 
   return (
     <>

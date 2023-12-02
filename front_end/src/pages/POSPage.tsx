@@ -4,8 +4,10 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import PosPageCtx from "@/context/pos-page-ctx";
 import { Products } from "@/types";
 import { useFetch } from "@jhenbertnpm/use-fetch";
+import { useContext } from "react";
 
 const POSPage = () => {
   const { data } = useFetch<Products[]>({
@@ -16,6 +18,8 @@ const POSPage = () => {
     },
     initData: [],
   });
+
+  const { cart, addProductToCart } = useContext(PosPageCtx);
 
   return (
     <>

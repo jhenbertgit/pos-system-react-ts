@@ -1,7 +1,7 @@
 export type Theme = "light" | "dark" | "system";
 
 export type Products = {
-  id: number;
+  id?: number;
   product_name: string;
   price: number;
   img: string;

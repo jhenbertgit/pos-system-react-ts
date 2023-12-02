@@ -4,7 +4,7 @@ import ModeToggle from "./ModeToggle";
 import { ShoppingCart } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { useContext } from "react";
-import CartQtyContext from "@/context/cart-qty";
+import PosPageCtx from "@/context/pos-page-ctx";
 
 const routes = [
   { href: "", label: "Home" },
@@ -12,7 +12,7 @@ const routes = [
 ];
 
 const Header = () => {
-  const quantity = useContext(CartQtyContext);
+  const { cart } = useContext(PosPageCtx);
   return (
     <header>
       <Container>
@@ -41,7 +41,9 @@ const Header = () => {
             <div className="relative">
               <ShoppingCart size={40} />
               <div className="absolute top-0 right-0">
-                <Badge>{quantity}</Badge>
+                <Badge>
+                  {cart.reduce((total, item) => total + item.quantity, 0)}
+                </Badge>
               </div>
             </div>
             <ModeToggle />

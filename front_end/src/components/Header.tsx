@@ -5,6 +5,17 @@ import { ShoppingCart } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { useContext } from "react";
 import PosPageCtx from "@/context/pos-page-ctx";
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "./ui/alert-dialog";
+import CartTable from "./CartTable";
 
 const routes = [
   { href: "", label: "Home" },
@@ -38,14 +49,29 @@ const Header = () => {
             ))}
           </nav>
           <div className="flex space-x-3 items-center">
-            <div className="relative">
-              <ShoppingCart size={40} />
-              <div className="absolute top-0 right-0">
-                <Badge>
-                  {cart.reduce((total, item) => total + item.quantity, 0)}
-                </Badge>
-              </div>
-            </div>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <div className="relative cursor-pointer">
+                  <ShoppingCart size={40} />
+                  <div className="absolute top-0 right-0">
+                    <Badge>
+                      {cart.reduce((total, item) => total + item.quantity, 0)}
+                    </Badge>
+                  </div>
+                </div>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Your Cart</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    <CartTable />
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
             <ModeToggle />
           </div>
         </div>

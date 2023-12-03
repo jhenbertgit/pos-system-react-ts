@@ -19,7 +19,7 @@ const POSPage = () => {
     initData: [],
   });
 
-  const { cart, addProductToCart } = useContext(PosPageCtx);
+  const { addProductToCart } = useContext(PosPageCtx);
 
   return (
     <>
@@ -49,20 +49,6 @@ const POSPage = () => {
             </CardFooter>
           </Card>
         ))}
-      </div>
-      <div>
-        {cart ? (
-          cart.map((cartProduct) => (
-            <ul key={cartProduct.id}>
-              <li>Particular: {cartProduct.product_name}</li>
-              <li>Qty: {cartProduct.quantity}</li>
-              <li>Price: {cartProduct.price}</li>
-              <li>Total: {cartProduct.totalAmount}</li>
-            </ul>
-          ))
-        ) : (
-          <h1>No available in cart</h1>
-        )}
       </div>
     </>
   );

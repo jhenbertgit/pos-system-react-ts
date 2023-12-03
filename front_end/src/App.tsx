@@ -5,6 +5,7 @@ import POSPage from "./pages/POSPage";
 import { Products } from "./types";
 import { useState } from "react";
 import PosPageCtx from "./context/pos-page-ctx";
+import { useToast } from "./components/ui/use-toast";
 
 const router = createBrowserRouter([
   {
@@ -19,23 +20,25 @@ const router = createBrowserRouter([
 
 function App() {
   const [cart, setCart] = useState<Products[]>([]);
+  const { toast } = useToast();
 
   const addProductToCart = (product: Products) => {
-    //check if adding product exists
-    let findProductInCart = cart.find((i) => {
-      return i.id === product.id;
+    let newItem = product;
+    
+    //checking if the added product exists
+    const findProductInCart = cart.find((item) => {
+      return item.id === product.id;
     });
 
     if (findProductInCart) {
       let newCart: Products[] = [];
-      let newItem;
 
       cart.forEach((cartItem) => {
         if (cartItem.id === product.id) {
           newItem = {
             ...cartItem,
             quantity: cartItem.quantity + 1,
-            totalAmount: cartItem.price * (cartItem.quantity + 1),
+            totalPrice: cartItem.price * (cartItem.quantity + 1),
           };
           newCart.push(newItem);
         } else {
@@ -43,20 +46,28 @@ function App() {
         }
       });
       setCart(newCart);
-      //
     } else {
       let addingProduct = {
         ...product,
         quantity: 1,
-        totalAmount: product.price,
+        totalPrice: product.price,
       };
       setCart([...cart, addingProduct]);
     }
+    toast({
+      title: "Hey, yo!",
+      description: `Successfully added ${newItem.product_name} to cart`,
+    });
+  };
+
+  const removeProduct = (product: Products) => {
+    const newCart = cart.filter((cartItem) => cartItem.id !== product.id);
+    setCart(newCart);
   };
 
   return (
     <>
-      <PosPageCtx.Provider value={{ cart, addProductToCart }}>
+      <PosPageCtx.Provider value={{ cart, addProductToCart, removeProduct }}>
         <RouterProvider router={router} />
       </PosPageCtx.Provider>
     </>

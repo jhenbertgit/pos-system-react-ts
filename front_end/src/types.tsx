@@ -6,5 +6,5 @@ export type Products = {
   price: number;
   img: string;
   quantity: number;
-  totalAmount: number;
+  totalPrice: number;
 };

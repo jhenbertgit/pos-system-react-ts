@@ -1,13 +1,13 @@
+import { useContext } from "react";
+import { useFetch } from "@jhenbertnpm/use-fetch";
+import { Products } from "@/types";
+import PosPageCtx from "@/context/pos-page-ctx";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import PosPageCtx from "@/context/pos-page-ctx";
-import { Products } from "@/types";
-import { useFetch } from "@jhenbertnpm/use-fetch";
-import { useContext } from "react";
 
 const POSPage = () => {
   const { data } = useFetch<Products[]>({

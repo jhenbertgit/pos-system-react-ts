@@ -29,7 +29,7 @@ const Header = () => {
       <Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full">
           <div className="flex items-center">
-            <Link to={""}>
+            <Link to={"/"}>
               <h1 className="text-xl font-bold">POS</h1>
             </Link>
           </div>
@@ -68,7 +68,7 @@ const Header = () => {
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogCancel>Close</AlertDialogCancel>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>

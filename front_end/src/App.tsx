@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import POSPage from "./pages/POSPage";
 import PosPageCtx from "./context/pos-page-ctx";
 import { useCart } from "./hooks/use-cart";
+import Footer from "./components/Footer";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ function App() {
     <>
       <PosPageCtx.Provider value={{ cart, addProductToCart, removeProduct }}>
         <RouterProvider router={router} />
+        <Footer />
       </PosPageCtx.Provider>
     </>
   );

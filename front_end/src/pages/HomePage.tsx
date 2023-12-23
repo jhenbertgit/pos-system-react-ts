@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 p-5 mt-5">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 p-5 mt-5 h-full">
       <div>
         <h1 className="font-bold text-3xl mb-4">Welcome to Web-based POS</h1>
         <p className="text-lg text-justify">

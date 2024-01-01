@@ -12,7 +12,7 @@ import {
 const POSPage = () => {
   const { data } = useFetch<Products[]>({
     fetchFn: async () => {
-      const response = await fetch("http://localhost:3000/products");
+      const response = await fetch("http://localhost:9000/products");
       const result = await response.json();
       return result;
     },

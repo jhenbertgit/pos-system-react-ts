@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { useFetch } from "@jhenbertnpm/use-fetch";
+import { json, useLoaderData } from "react-router-dom";
+// import { useFetch } from "@jhenbertnpm/use-fetch";
 import { Products } from "@/types";
 import PosPageCtx from "@/context/pos-page-ctx";
 import {
@@ -9,22 +10,25 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 
+
 const POSPage = () => {
-  const { data } = useFetch<Products[]>({
-    fetchFn: async () => {
-      const response = await fetch("http://localhost:9000/products");
-      const result = await response.json();
-      return result;
-    },
-    initData: [],
-  });
+  // const { data } = useFetch<Products[]>({
+  //   fetchFn: async () => {
+  //     const response = await fetch("http://localhost:9000/products");
+  //     const result = await response.json();
+  //     return result;
+  //   },
+  //   initData: [],
+  // });
+
+  const products = useLoaderData() as Products[];
 
   const { addProductToCart } = useContext(PosPageCtx);
 
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-4">
-        {data.map((product) => (
+        {products.map((product: Products) => (
           <Card key={product.id}>
             <CardHeader>
               <h1 className="font-bold text-2xl">{product.product_name}</h1>
@@ -55,3 +59,16 @@ const POSPage = () => {
 };
 
 export default POSPage;
+
+export const loader = async () => {
+  const response = await fetch("http://localhost:9000/products");
+
+  if (!response.ok) {
+    return json(
+      { message: "Could not fetch data from database" },
+      { status: 500 }
+    );
+  } else {
+    return response;
+  }
+};

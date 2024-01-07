@@ -5,6 +5,7 @@ import POSPage from "./pages/POSPage";
 import PosPageCtx from "./context/pos-page-ctx";
 import { useCart } from "./hooks/use-cart";
 import Footer from "./components/Footer";
+import { loader as posPageLoader } from "./pages/POSPage";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "pos", element: <POSPage /> },
+      { path: "pos", loader: posPageLoader, element: <POSPage /> },
     ],
   },
 ]);

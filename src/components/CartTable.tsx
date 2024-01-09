@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
-import PosPageCtx from "@/context/pos-page-ctx";
+import PosPageCtx from "@/contexts/pos-page-ctx";
 import { Button } from "./ui/button";
 
 const CartTable = () => {

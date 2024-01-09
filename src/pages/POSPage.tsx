@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { json, useLoaderData } from "react-router-dom";
 // import { useFetch } from "@jhenbertnpm/use-fetch";
 import { Products } from "@/types";
-import PosPageCtx from "@/context/pos-page-ctx";
+import PosPageCtx from "@/contexts/pos-page-ctx";
 import {
   Card,
   CardContent,

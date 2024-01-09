@@ -1,4 +1,4 @@
-import { ThemeProviderCtx } from "@/context/theme-provider-ctx";
+import { ThemeProviderCtx } from "@/contexts/theme-provider-ctx";
 import { Theme } from "@/types";
 import { useEffect, useState } from "react";
 

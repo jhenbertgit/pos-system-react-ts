@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ShoppingCart } from "lucide-react";
 import { Badge } from "./ui/badge";
-import PosPageCtx from "@/context/pos-page-ctx";
+import PosPageCtx from "@/contexts/pos-page-ctx";
 import CartTable from "./CartTable";
 import {
   AlertDialog,

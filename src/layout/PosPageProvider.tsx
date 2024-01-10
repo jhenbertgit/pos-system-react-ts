@@ -8,7 +8,7 @@ type PosPageProviderProps = {
 
 const PosPageProvider = ({ children }: PosPageProviderProps) => {
   const { cart, addProductToCart, removeProduct } = useCart();
-  
+
   return (
     <PosPageCtx.Provider value={{ cart, addProductToCart, removeProduct }}>
       {children}

@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Container from "./Container";
 import ModeToggle from "./ModeToggle";
 import Navigation from "./Navigation";
 import Cart from "./Cart";
 
 const Header = () => {
+  const location = useLocation();
+  const isPosPage = location.pathname === "/pos";
+  
   return (
     <header>
       <Container>
@@ -16,7 +19,7 @@ const Header = () => {
           </div>
           <Navigation />
           <div className="flex space-x-3 items-center">
-            <Cart />
+            {isPosPage && <Cart />}
             <ModeToggle />
           </div>
         </div>

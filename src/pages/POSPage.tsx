@@ -10,7 +10,6 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 
-
 const POSPage = () => {
   // const { data } = useFetch<Products[]>({
   //   fetchFn: async () => {
@@ -64,7 +63,7 @@ export const loader = async () => {
   const response = await fetch("http://localhost:9000/products");
 
   if (!response.ok) {
-    return json(
+    throw json(
       { message: "Could not fetch data from database" },
       { status: 500 }
     );
